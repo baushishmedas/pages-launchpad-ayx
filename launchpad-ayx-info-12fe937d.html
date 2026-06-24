@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 站点说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fbe9d7 0%, #f7d9c4 40%, #f0cdb5 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.2rem;
+        }
+
+        .page-card {
+            max-width: 920px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 3rem 2.8rem;
+            box-shadow: 0 20px 40px -10px rgba(160, 100, 60, 0.18), 0 8px 24px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 1.2rem; }
+            .page-card { padding: 2rem 1.6rem; border-radius: 28px; }
+        }
+
+        .hero {
+            margin-bottom: 2.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #4e2e1c;
+            background: linear-gradient(135deg, #7c4b2e, #a1683e);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #7a5b44;
+            margin-top: 0.6rem;
+            border-left: 4px solid #dbaa7c;
+            padding-left: 1rem;
+            font-weight: 420;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 550;
+            color: #4e2e1c;
+            margin: 2rem 0 0.9rem 0;
+            letter-spacing: 0.01em;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #b8825a;
+            font-weight: 300;
+        }
+
+        .intro-text {
+            color: #3f2a1d;
+            line-height: 1.7;
+            font-size: 1rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .intro-text a {
+            color: #9a6d4b;
+            font-weight: 500;
+            text-decoration: none;
+            border-bottom: 1px solid #dbb89a;
+            padding-bottom: 1px;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .intro-text a:hover {
+            color: #693f27;
+            border-bottom-color: #7c4e31;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin: 1.2rem 0 1.8rem 0;
+        }
+
+        .hl-item {
+            background: #f9f2ea;
+            padding: 1.2rem 1.2rem 1.4rem;
+            border-radius: 24px;
+            box-shadow: inset 0 1px 3px rgba(255,255,255,0.8), 0 2px 6px rgba(140,80,40,0.08);
+        }
+
+        .hl-item h3 {
+            font-size: 1.1rem;
+            font-weight: 540;
+            color: #5f3c24;
+            margin-bottom: 0.35rem;
+        }
+
+        .hl-item p {
+            color: #4f3422;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .usage-suggestion {
+            background: #fcf7f1;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0;
+            border: 1px solid #edd9c6;
+        }
+
+        .usage-suggestion p {
+            color: #3d2b1d;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .trust-note {
+            background: #f2e6db;
+            border-radius: 24px;
+            padding: 1.4rem 1.8rem;
+            margin-top: 1.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.6rem 1rem;
+        }
+
+        .trust-note .label {
+            font-weight: 550;
+            color: #633e27;
+            letter-spacing: 0.02em;
+            background: #ffffffb8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+        }
+
+        .trust-note .desc {
+            color: #402d1e;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 0.8rem;
+        }
+
+        .faq-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #ecdccc;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 540;
+            color: #543a28;
+            margin-bottom: 0.2rem;
+        }
+
+        .faq-a {
+            color: #4b3424;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .footnote {
+            margin-top: 2.6rem;
+            font-size: 0.85rem;
+            color: #7b604b;
+            border-top: 1px solid #ebd6c4;
+            padding-top: 1.4rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-card">
+        <div class="hero">
+            <h1>爱游戏 · 站点介绍</h1>
+            <div class="subhead">关于 launchpad-ayx.com.cn 的定位、特点与使用参考</div>
+        </div>
+
+        <p class="intro-text">
+            <strong>爱游戏</strong> 是一个聚焦游戏内容与社区体验的轻量平台，提供信息聚合、工具辅助与玩家交流的整合入口。站点基于「便捷 · 清晰 · 低门槛」的思路设计，适合日常浏览游戏资讯、查找攻略片段或参与话题讨论。以下摘要整理了该站的主要特点与使用建议，帮助你快速了解是否契合自己的需求。
+        </p>
+
+        <!-- 亮点卡片 -->
+        <div class="highlights-grid">
+            <div class="hl-item">
+                <h3>信息干净</h3>
+                <p>页面结构直接，无过度跳转与干扰模块，核心内容一屏可见。</p>
+            </div>
+            <div class="hl-item">
+                <h3>主题聚焦</h3>
+                <p>围绕热门游戏与实用话题，避免杂乱的泛娱乐信息流。</p>
+            </div>
+            <div class="hl-item">
+                <h3>轻量反馈</h3>
+                <p>交互简单，加载轻快，适合移动端与桌面端快速查阅。</p>
+            </div>
+            <div class="hl-item">
+                <h3>日常更新</h3>
+                <p>保持内容节奏，不过分堆砌，每期精选值得关注的片段。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <div class="usage-suggestion">
+            <p>
+                <strong>使用场景参考：</strong> 如果你正在寻找一个不冗长、没有频繁弹窗的游戏信息站点，可以尝试将 
+                <a href="https://launchpad-ayx.com.cn">爱游戏</a> 
+                加入浏览清单。适合在碎片时间翻阅最新话题、了解游戏活动，或通过站内索引发现同好讨论。建议配合浏览器的阅读模式或收藏夹使用，体验更自在。
+            </p>
+        </div>
+
+        <!-- 可信但克制的说明 -->
+        <div class="trust-note">
+            <span class="label">可信说明</span>
+            <span class="desc">
+                本站内容由作者根据公开信息整理，不虚构数据、不引导付费、不植入隐性推广。所有链接与内容均保持可追溯与真实性。请根据个人判断合理使用，平台不对第三方跳转内容负责。
+            </span>
+        </div>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-mini">
+            <div class="section-title">常见问题摘要</div>
+
+            <div class="faq-item">
+                <div class="faq-q">站点主要提供什么？</div>
+                <div class="faq-a">游戏资讯、实用工具推荐、社区讨论索引，以及部分攻略向内容整理。不包含下载链接或充值入口。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">更新频率如何？</div>
+                <div class="faq-a">每周 2-4 次，以精选为主，不追求日更数量。特殊活动期间会临时增加内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">是否需要注册账号？</div>
+                <div class="faq-a">浏览所有公开内容均无需登录。部分互动功能（评论、收藏）可能要求账号，但非强制。</div>
+            </div>
+        </div>
+
+        <div class="footnote">
+            <span>爱游戏 · launchpad-ayx.com.cn &nbsp;|&nbsp; 内容仅供参考，请理性使用。</span>
+        </div>
+    </div>
+</body>
+</html>
